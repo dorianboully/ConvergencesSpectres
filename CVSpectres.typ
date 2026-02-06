@@ -6,8 +6,12 @@
 
 #include "src/title.typ"
 
-#pagebreak()
+#include "src/presentation.typ"
+#v(2cm)
+
 #outline(depth: 2)
+
+#pagebreak()
 
 #include "src/seance1.typ"
 
