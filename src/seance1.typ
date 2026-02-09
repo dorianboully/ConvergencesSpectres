@@ -254,9 +254,11 @@ définis sur des espaces de Hilbert différents.
   $
   où la norme est celle des opérateurs bornés sur $cal(H)$.
 ]
+
 //TODO: comprendre les adjoints (espaces de Hilbert différents)
 #remark[
-  Cette convergence des pseudo-résolvantes peut être vérifiée pour un seul $z in CC without RR$.
+  Cette convergence des pseudo-résolvantes peut être vérifiée
+  pour un seul $z in CC without RR$.
 ]
 
 #example[
@@ -307,15 +309,15 @@ le support contient $x$.
   pour toute fonction test $φ$ continue à support borné sur $Z$.
 ]
 
-#remark[
-  Ceci implique $ι_n(x_n) --> ι_(∞)(x_(∞))$ puisqu'on demande aux points
-  de base de faire partie du support des mesures. De plus
-  on a convergence pour la topologie de Hausdorff pointée
-  sur les bornés
-  $
-    ι_n (supp m_n, x_n) --> ι_(∞)(supp m_(∞), x_(∞)).
-  $
-]
+// #remark[
+//   Ceci implique $ι_n(x_n) --> ι_(∞)(x_(∞))$ puisqu'on demande aux points
+//   de base de faire partie du support des mesures. De plus
+//   on a convergence pour la topologie de Hausdorff pointée
+//   sur les bornés
+//   $
+//     ι_n (supp m_n, x_n) --> ι_(∞)(supp m_(∞), x_(∞)).
+//   $
+// ]
 
 
 Intéressons-nous au cas où les espaces métriques $(X_n, x_n, d_n, m_n)$

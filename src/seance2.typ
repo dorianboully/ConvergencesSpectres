@@ -26,7 +26,7 @@ $
   En dimension $1$, on a $L^(ε) : f arrow.r.bar.long (a^(ε) f
     prime)prime$, avec $a^(ε)(x) = a(x/ε)$ et $L^(0) = q f prime.double$ 
     avec $ q = 1/(mu(1/a)). $ Indication. Résoudre
-  $(a^(ε)f prime)prime = g$ avec les conditions de dirichlet. La
+  $(a^(ε)f prime)prime = g$ avec les conditions de Dirichlet. La
   convergence au sens de la résolvante dit que si $f^(ε)$ est
   solution de $L^(ε) f^(ε) = g$, alors $f^(ε) arrow f^(0)$ dans
   $L^2(Ω)$, où $f^(0)$ est solution de $L^(0) f^(0) = g$.
