@@ -246,7 +246,7 @@ définis sur des espaces de Hilbert différents.
   vers $A_(0)$, et on note $A_(ε) -->^("rés-gen") A_(0)$ s'il existe des
   plongements isométriques
   $
-    ι_(ε) : cal(H)_(ε) arrow.r.hook cal(H), quad ε ⩾ 0, quad ι_(ε)^(*) ι_(ε) = id
+    ι_(ε) : cal(H)_(ε) arrowHookLong cal(H), quad ε ⩾ 0, quad ι_(ε)^(*) ι_(ε) = id
   $
   tels que pour tout $z in CC without RR$, on ait
   $
@@ -261,26 +261,126 @@ définis sur des espaces de Hilbert différents.
   pour un seul $z in CC without RR$.
 ]
 
-#example[
-  Dans le cas du rectangle $R_(ε)$ avec conditions de Neumann, on peut
-  prendre $cal(H)_(ε) = L^(2)(R_(ε))$ pour $ε > 0$, $cal(H_0) = L^(2)([0, 1]) = cal(H)$
-  et les plongements isométriques
-  $
-    ι_(ε) : cal(H)_(ε) arrow.r.hook cal(H), quad
-    ι_(ε) f (x) = 1/ε integral_(0)^(ε) f(x, y) dif y.
-  $
-]
+#exercise(title: [Exemple pour l'exercice précédent])[
+  On considère $cal(H)_epsilon = L^2 (RR slash ZZ times (RR slash epsilon ZZ))$, $A_epsilon = Delta_epsilon$ le laplacien sur le tore
+  $RR slash ZZ times (RR slash epsilon ZZ)$ (de domaine l'espace de Sobolev $H^2$) et $cal(H)_0 = L^2 (RR slash ZZ)$,
+  $A_0 = Delta_0$ le laplacien sur le cercle $RR slash ZZ$. Montrer que $A_epsilon$ converge vers $A_0$
+  quand $epsilon --> 0$ en norme de la résolvante (au sens généralisé de Weidmann).
+]<exoLaplacienContinuWeidmann>
 
-#exercise[
-  Vérifier que les applications $ι_(ε)$ sont des plongements isométriques. Montrer que
-  le laplacien $Δ_(ε)$ sur $R_(ε)$ avec conditions de Neumann
-  converge au sens des résolvantes généralisées vers le laplacien
-  $Δ$ sur $[0, 1]$ avec conditions de Neumann.
-  #text(fill: red)[
-    Il semble qu'il y ait un problème d'injectivité d'après la question
-    d'un auditeur. On peut avoir une fonction non identiquement nulle mais
-    de moyenne nule sur chaque segment vertical ${x} times [0, ε]$.
-  ]
+#proof(title: "Solution")[
+  Notons $TT_(epsilon) = RR slash ZZ times (RR slash epsilon ZZ)$ pour $epsilon > 0$
+  et $SS^(1) = RR slash ZZ$.
+  + Étudions rapidement les opérateurs laplacien. On note,
+    pour $epsilon > 0$ et $k, l in ZZ$,
+    $
+      e_(k, l)^((epsilon)) (x, y) := exp(2 i pi (k x + l y slash epsilon)),
+    $
+    ce qui définit une base de Hilbert (non normalisée) de $cal(H)_epsilon$ d'après la théorie
+    des séries de Fourier. On a
+    $
+      A_(epsilon) e_(k, l)^((epsilon)) = lambda_(k,l)^((epsilon)) e_(k, l)^((epsilon)), quad "avec" quad lambda_(k,l)^((epsilon)) = - 4 pi^2 (k^2 + l^2 slash epsilon^2).
+    $
+    Cela montre à la fois que $A_(epsilon)$ est à symétrie hermitienne,
+    et qu'il est auto-adjoint sur son domaine maximal, qui n'est autre que
+    $H^(2)(TT_(epsilon))$. De plus, les valeurs propres $lambda_(k,l)^((epsilon))$
+    tendent vers l'infini lorsque $(k, l) -> infinity$ dans $ZZ^(2)$,
+    donc tout $z in CC$ distinct de chaque $lambda_(k,l)^((epsilon))$ est
+    résolvant. Ainsi,
+    $
+      sigma(A_(epsilon)) = { lambda_(k,l)^((epsilon)) thick ; thick (k, l) in ZZ^(2) }.
+    $
+    On montrerait de manière similaire que $A_0$ est auto-adjoint de
+    domaine $H^2 (SS^(1))$, diagonal dans la base de Hilbert (non normalisée)
+    $
+      e_k (x) := exp(2 i pi k x), quad k in ZZ,
+    $
+    et de spectre
+    $
+      sigma(A_0) = { lambda_k thick ; thick k in ZZ } quad "avec" quad lambda_k = - 4 pi^2 k^2.
+    $
+    On voit que pour $l eq.not 0$, $lambda_(k,l)^((epsilon))$ tend vers l'infini lorsque $epsilon --> 0$.
+    Ainsi, on vérifie facilement à la main dans cet exemple que
+    le spectre de $A_(epsilon)$ "converge" vers celui de $A_0$. Montrons
+    qu'il y a effectivement convergence de $A_(epsilon)$ vers $A_0$ au
+    sens de Weidmann.
+
+  + Définissons des plongements des $cal(H)_(epsilon)$ dans un
+    espace de Hilbert auxiliaire $cal(H)$. On considère
+    $cal(H) = L^(2)(TT)$, avec $TT = TT_(1)$ le tore usuel.
+    On écrira $e_(k,l) := e_(k,l)^((1))$ et $lambda_(k,l) := lambda_(k,l)^((1))$
+    pour alléger les notations.
+    On définit des applications linéaires $iota_(epsilon) : cal(H)_(epsilon) --> cal(H)$ par
+    $
+      forall epsilon > 0, quad
+      iota_(epsilon) f (x, y) = sqrt(epsilon) f(x, epsilon y)
+      quad "et" quad iota_0 f (x, y) = f(x).
+    $
+    On a, pour tout $f in cal(H)_(epsilon) = L^(2)(TT_(epsilon))$,
+    $
+      norm(iota_(epsilon) f)_(cal(H))^2
+      = integral_([0, 1]^(2)) abs(f(x, epsilon y))^2 dif x (epsilon dif y)
+      = integral_([0, 1] times [0, epsilon]) abs(f(x, y))^2 dif x dif y
+      = norm(f)_(cal(H)_(epsilon))^2,
+    $
+    ce qui montre que $iota_(epsilon)$ est une isométrie. De même, $iota_0$
+    est une isométrie de $cal(H)_0$ dans $cal(H)$. On observe
+    que $iota_(epsilon)$ est bijective pour $epsilon > 0$ donc
+    $iota_(epsilon)^(*) = iota_(epsilon)^(-1)$. De plus,
+    pour $f in cal(H)_(0)$ et $g in cal(H)$, on a par le théorème de Fubini
+    $
+      chevron.l iota_0 f, g chevron.r_(cal(H))
+      & = integral_([0, 1]^(2)) f(x) overline(g(x, y)) dif x dif y
+      & = integral_0^1 f(x) overline((integral_0^1 g(x, y) dif y)) dif x
+      & = lr(chevron.l f, iota_0^(*)g chevron.r)_(cal(H)_0),
+    $
+    avec
+    $
+      iota_0^(*) g (x) = integral_0^1 g(x, y) dif y.
+    $
+
+  + Montrons à présent que la convergence en norme des résolvantes au sens de Weidmann a lieu pour
+    ces choix de plongements et pour $z = i in CC without RR$. Pour commencer, on a les égalités suivantes,
+    valables pour tous $k, l in ZZ$ et $epsilon > 0$.
+    $
+      iota_(epsilon) e_(k,l)^((epsilon)) = sqrt(epsilon) e_(k,l),
+      quad iota_(epsilon)^(*) e_(k, l) = e_(k, l)^((epsilon)) / sqrt(epsilon),
+      quad iota_0 e_k = e_(k,0),
+    $
+    et pour tout $x in SS^(1)$,
+    $
+      iota_(0)^(*) e_(k, l) (x) = integral_0^1 e_(k, l) (x, y) dif y
+      = integral_0^1 exp(2 i pi (k x + l y)) dif y
+      = cases(
+        e_(k)(x) & quad "si" l = 0,
+        0 & quad "si" l eq.not 0.
+      )
+    $
+    De plus,
+    $
+      R_(epsilon) (z) e_(k, l)^((epsilon)) = e_(k, l)^((epsilon)) / (z - lambda_(k,l)^((epsilon)))
+      quad "et" quad
+      R_0 (z) e_k = e_k / (z - lambda_k).
+    $
+    De là, il vient
+    $
+      (tilde(R)_(epsilon)(z) - tilde(R)_0 (z)) e_(k, l) = a_(k,l)^((epsilon)) e_(k, l), quad "avec" quad
+      a_(k,l)^((epsilon)) = cases(
+        1 / (z - lambda_(k,l)^((epsilon))) - 1 / (z - lambda_k) = 0 & quad "si" l = 0,
+        1 / (z - lambda_(k,l)^((epsilon))) & quad "si" l eq.not 0.
+      )
+    $
+    Or, on a
+    $
+      abs(a_(k,l)^((epsilon))) lt.eq.slant 1/abs(z - lambda_(k,l)^((epsilon)))
+      = 1/ sqrt(1 + 16 pi^4 (k^2 + l^2 / epsilon^2)^2) lt.eq.slant epsilon^(2)/ (4 pi^2).
+    $
+    Comme les $e_(k,l)$ forment une base de Hilbert de $cal(H)$ et les opérateurs
+    $tilde(R)_(epsilon)(z) - tilde(R)_0 (z)$ sont bornés, on en déduit que pour tout $epsilon gt.eq.slant 0$,
+    $
+      norm(tilde(R)_(epsilon)(z) - tilde(R)_0 (z))_(cal(B)(cal(H))) lt.eq.slant epsilon^(2) / (4 pi^2) stretch(arrow)_(epsilon -> 0) 0,
+    $
+    ce qui conclut.
 ]
 
 == Convergence d'espaces métriques au sens de Gromov-Hausdorff.

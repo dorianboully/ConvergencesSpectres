@@ -23,9 +23,8 @@ $
 $
 On peut affaiblir l'hypothèse sur la systole en demandant que pour tout $R > 0$, le
 nombre de géodésiques fermées de longueur au plus $R$ (chemins fermés sans retour arrière
-dans le graphe) soit négligeable devant la taille de $G_N$. #text(fill: red)[Ne suffit-il
-  pas de prendre comme définition de géodésique un chemin fermé sans auto-intersection (implique sans
-  retour arrière) ?]
+dans le graphe) soit négligeable devant la taille de $G_N$. 
+// #text(fill: red)[Ne suffit-il pas de prendre comme définition de géodésique un chemin fermé sans auto-intersection (implique sans retour arrière) ?]
 
 === Graphes ayant un revêtement universel commun
 Soit $tilde(G)$ un arbre, et $Γ < op("Aut")(tilde(G))$ un sous-groupe
