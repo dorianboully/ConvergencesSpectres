@@ -234,8 +234,6 @@ la convergence en norme des projecteurs spectraux
 $
   norm(P_(ε)^(Λ) - P_(0)^(Λ)) -->_(ε -> 0) 0.
 $
-// TODO: regarder les projecteurs spectraux. Comprendre ce que
-// cela implique sur le rang des projecteurs spectraux.
 
 Pour le cas des graphes métriques épaissis, on a besoin de généraliser
 la notion de convergence en norme des résolvantes à des opérateurs
@@ -243,8 +241,7 @@ définis sur des espaces de Hilbert différents.
 
 #definition(title: "Weidmann")[
   On dit que $(A_(ε))_(ε ⩾ 0)$ converge au sens des résolvantes généralisées
-  vers $A_(0)$, et on note $A_(ε) -->^("rés-gen") A_(0)$ s'il existe des
-  plongements isométriques
+  vers $A_(0)$ s'il existe des plongements isométriques
   $
     ι_(ε) : cal(H)_(ε) arrowHookLong cal(H), quad ε ⩾ 0, quad ι_(ε)^(*) ι_(ε) = id
   $
@@ -255,13 +252,12 @@ définis sur des espaces de Hilbert différents.
   où la norme est celle des opérateurs bornés sur $cal(H)$.
 ]
 
-//TODO: comprendre les adjoints (espaces de Hilbert différents)
 #remark[
   Cette convergence des pseudo-résolvantes peut être vérifiée
   pour un seul $z in CC without RR$.
 ]
 
-#exercise(title: [Exemple pour l'exercice précédent])[
+#exercise[
   On considère $cal(H)_epsilon = L^2 (RR slash ZZ times (RR slash epsilon ZZ))$, $A_epsilon = Delta_epsilon$ le laplacien sur le tore
   $RR slash ZZ times (RR slash epsilon ZZ)$ (de domaine l'espace de Sobolev $H^2$) et $cal(H)_0 = L^2 (RR slash ZZ)$,
   $A_0 = Delta_0$ le laplacien sur le cercle $RR slash ZZ$. Montrer que $A_epsilon$ converge vers $A_0$
